@@ -339,6 +339,128 @@
     line-height: 1.85;
   }
 
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .testimonial-card {
+    background: var(--white);
+    border: 1px solid var(--gold-pale);
+    border-radius: 4px;
+    padding: 1.75rem 1.5rem;
+    position: relative;
+  }
+  .testimonial-quote-mark {
+    font-family: var(--serif);
+    font-size: 48px;
+    line-height: 1;
+    color: var(--gold-pale);
+    position: absolute;
+    top: 12px; left: 16px;
+  }
+  .testimonial-text {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.9;
+    margin-top: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .testimonial-author {
+    display: flex; align-items: center; gap: 10px;
+    border-top: 1px solid var(--gold-pale);
+    padding-top: 1rem;
+  }
+  .testimonial-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--green-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 500; color: var(--green-deep);
+    flex-shrink: 0;
+  }
+  .testimonial-name { font-size: 13px; font-weight: 500; color: var(--green-deep); }
+  .testimonial-type { font-size: 11px; color: var(--ink-light); letter-spacing: 0.06em; }
+  .testimonial-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 4px; }
+
+  /* ── PROCESS ── */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0;
+    margin-top: 2.5rem;
+    background: var(--paper);
+    border: 1px solid var(--gold-pale);
+  }
+  .process-step {
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+    border-right: 1px solid var(--gold-pale);
+  }
+  .process-step:last-child { border-right: none; }
+  @media (max-width: 600px) {
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-step { border-bottom: 1px solid var(--gold-pale); }
+  }
+  .process-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 16px; font-weight: 600;
+    margin: 0 auto 12px;
+  }
+  .process-name {
+    font-size: 13px; font-weight: 500;
+    color: var(--green-deep);
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+  }
+  .process-desc { font-size: 12px; color: var(--ink-light); line-height: 1.7; }
+
+  /* ── FAQ ── */
+  .faq-list { margin-top: 2.5rem; }
+  .faq-item {
+    border-bottom: 1px solid var(--gold-pale);
+    overflow: hidden;
+  }
+  .faq-item:first-child { border-top: 1px solid var(--gold-pale); }
+  .faq-q {
+    width: 100%; background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 0;
+    font-family: var(--serif);
+    font-size: 15px; font-weight: 500;
+    color: var(--green-deep);
+    text-align: left;
+    gap: 1rem;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--gold); }
+  .faq-icon {
+    width: 22px; height: 22px; flex-shrink: 0;
+    border: 1px solid var(--gold-pale); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--gold);
+    transition: transform 0.3s;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a {
+    font-size: 14px; color: var(--ink-mid); line-height: 1.9;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.3s ease;
+    border-left: 3px solid var(--gold-pale);
+    padding-left: 1rem;
+    margin-left: 2px;
+    padding-bottom: 0;
+  }
+  .faq-item.open .faq-a { max-height: 400px; padding-bottom: 1.25rem; }
+
   /* ── CTA ── */
   .cta-section {
     background: var(--green-deep);
@@ -438,6 +560,8 @@
   <ul class="nav-links">
     <li><a href="#about">關於我</a></li>
     <li><a href="#services">服務項目</a></li>
+    <li><a href="#testimonials">客戶見證</a></li>
+    <li><a href="#faq">常見問題</a></li>
     <li><a href="#contact">立即諮詢</a></li>
   </ul>
 </nav>
@@ -482,7 +606,7 @@
         </p>
         <div class="about-body">
           <p>在台南這片土地上，房地產不是冰冷的數字，而是每個家庭對未來的承諾。我明白年輕首購族面對動輒千萬房價的壓力，也體會自營商老闆對資產配置的精確要求。</p>
-          <p>身為台南的女兒，我在這裡生活了幾三十年，看著城市從古樸巷弄發展到潛力重劃區。不管是想幫孩子在南科旁成家，還是想找一塊傳承子孫的土地，我都會像幫自家人挑選一樣，細心把關。</p>
+          <p>身為台南的女兒，我在這裡生活了四十幾年，看著城市從古樸巷弄發展到潛力重劃區。不管是想幫孩子在南科旁成家，還是想找一塊傳承子孫的土地，我都會像幫自家人挑選一樣，細心把關。</p>
         </div>
 
         <div class="awards">
@@ -566,6 +690,177 @@
   </div>
 </div>
 
+<!-- TESTIMONIALS -->
+<div id="testimonials" style="background: var(--paper);">
+  <div class="section">
+    <div class="section-label">客戶見證</div>
+    <div class="section-title">每一句謝謝，<br>都是最好的獎章</div>
+    <hr class="divider" style="margin-bottom: 0;">
+    <div class="testimonials-grid reveal">
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">第一次買房完全不懂流程，雅瑄從貸款試算到簽約每個步驟都解釋得很清楚，不會讓人有壓力。交屋那天真的很感動，謝謝她的耐心陪伴。</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">小陳</div>
+          <div>
+            <div class="testimonial-name">陳小姐</div>
+            <div class="testimonial-type">首購族 · 永康區</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">我想在台南找適合開店的透天，問過幾個仲介都沒有很認真。雅瑄不一樣，她真的了解中西區的商圈生態，幫我找到非常適合的物件，現在生意很好。</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">老王</div>
+          <div>
+            <div class="testimonial-name">王老闆</div>
+            <div class="testimonial-type">自營商 · 中西區</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">在南科上班，想在附近買房方便通勤。雅瑄幫我比較了善化、新市好幾個社區，連學區、未來開發都分析給我聽。很專業，完全信任她。</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">工程師</div>
+          <div>
+            <div class="testimonial-name">林先生</div>
+            <div class="testimonial-type">南科工程師 · 善化區</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">家裡有一塊閒置土地，不知道能怎麼處理。雅瑄幫我評估了好幾個方向，包括出租和整合開發，說明得很詳細。感覺她真的是在幫我著想，不是只想快點成交。</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">黃媽</div>
+          <div>
+            <div class="testimonial-name">黃太太</div>
+            <div class="testimonial-type">資產活化 · 安南區</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="divider" style="max-width: 900px; margin: 0 auto;">
+
+<!-- PROCESS -->
+<div id="process">
+  <div class="section">
+    <div class="section-label">購屋流程</div>
+    <div class="section-title">六步驟，<br>讓買房不再複雜</div>
+    <hr class="divider" style="margin-bottom: 0;">
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div class="process-name">免費諮詢</div>
+        <div class="process-desc">LINE 或電話告訴我需求，一起釐清預算與條件</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div class="process-name">精選帶看</div>
+        <div class="process-desc">依需求過濾物件，陪您實際看屋，分析優缺點</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div class="process-name">議價協商</div>
+        <div class="process-desc">掌握市場行情，為您爭取最合理的成交價格</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <div class="process-name">貸款規劃</div>
+        <div class="process-desc">協助試算房貸、推薦適合方案，降低資金壓力</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">5</div>
+        <div class="process-name">簽約過戶</div>
+        <div class="process-desc">備齊所有文件，全程陪同簽約，確保權益無虞</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">6</div>
+        <div class="process-name">交屋售後</div>
+        <div class="process-desc">交屋後持續支援，有任何問題隨時找得到我</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" style="max-width: 900px; margin: 0 auto;">
+
+<!-- FAQ -->
+<div id="faq" style="background: var(--paper);">
+  <div class="section">
+    <div class="section-label">常見問題</div>
+    <div class="section-title">您想知道的，<br>雅瑄都在這裡</div>
+    <hr class="divider" style="margin-bottom: 0;">
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          第一次買房，我需要準備多少頭期款？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">一般房貸最高可貸八成，代表您至少需要房價的兩成作為頭期款，加上代書費、仲介費、契稅等雜費約佔房價 1.5～2%。舉例來說，買 1,000 萬的房子，頭期款加費用大約需要備妥 220 萬左右。每個人的狀況不同，建議先與我諮詢，我可以幫您試算最適合的方案。</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          委託仲介需要支付多少費用？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">依照不動產經紀業管理條例，買方仲介費上限為成交價的 2%，賣方仲介費上限為 4%。實際費用會依物件狀況與服務內容有所不同，我會在諮詢時明確告知，絕無隱藏費用。</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          台南哪些區域最值得投資或自住？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">自住方面，中西區生活機能成熟、湖美商圈便利；南科周邊的永康、善化、新市則深受工程師家庭青睞，通勤便利且生活圈完整。投資方面，目前幾個重劃區發展潛力不錯，建議與我預約，我可以根據您的預算與目標做更精準的分析。</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          我有一塊老地或老房，可以請雅瑄評估嗎？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">當然可以！我提供閒置土地與老宅的資產評估服務，包含出租活化、整合開發、改建翻新等多種方向。每塊土地的條件都不同，歡迎透過 LINE 或電話與我聯繫，我會親自了解後給您最實在的建議。</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          外地人想在台南買房，可以找雅瑄嗎？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">當然歡迎！我服務過許多外地工作、退休移居或子女在台南就學的客戶。即使您不在台南，我也可以先線上諮詢、視訊介紹物件，等您方便時再安排帶看，整個流程我都會陪您走完。</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          買賣流程大概需要多久時間？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">從簽訂買賣契約到完成過戶，一般約需 1 到 3 個月，視貸款審核速度與雙方時程安排而定。我會全程追蹤進度、提醒您備妥每個階段所需文件，讓流程盡量順暢不延誤。</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="divider" style="max-width: 900px; margin: 0 auto;">
+
 <!-- CTA / CONTACT -->
 <div id="contact" class="cta-section">
   <div class="cta-inner">
@@ -600,8 +895,15 @@
         observer.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.08 });
   revealEls.forEach(el => observer.observe(el));
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
 </script>
 </body>
 </html>
