@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>劉翠珍 雅瑄｜住商不動產台南湖美天河</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1714;
+    --ink-mid: #3d3830;
+    --ink-light: #7a7268;
+    --cream: #faf8f4;
+    --paper: #f3efe8;
+    --gold: #b89a5e;
+    --gold-light: #d4b87a;
+    --gold-pale: #ede0c4;
+    --green-deep: #2d4a3e;
+    --green-mid: #3d6254;
+    --green-pale: #e8f0ec;
+    --white: #ffffff;
+    --serif: 'Noto Serif TC', serif;
+    --sans: 'Noto Sans TC', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gold-pale);
+    padding: 0 2rem;
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--green-deep);
+    letter-spacing: 0.08em;
+  }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    color: var(--ink-light);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green-deep); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--green-deep);
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+    padding-top: 60px;
+  }
+
+  .hero-bg-pattern {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 60px,
+        rgba(255,255,255,0.02) 60px,
+        rgba(255,255,255,0.02) 61px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 60px,
+        rgba(255,255,255,0.02) 60px,
+        rgba(255,255,255,0.02) 61px
+      );
+  }
+
+  .hero-deco {
+    position: absolute;
+    right: -80px; top: 50%;
+    transform: translateY(-50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,154,94,0.18);
+    z-index: 0;
+  }
+  .hero-deco::before {
+    content: '';
+    position: absolute; inset: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,154,94,0.12);
+  }
+  .hero-deco::after {
+    content: '';
+    position: absolute; inset: 100px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,154,94,0.08);
+  }
+
+  .hero-inner {
+    position: relative; z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s ease forwards;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.35s ease forwards;
+  }
+  .hero-title em {
+    font-style: normal;
+    color: var(--gold-light);
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    max-width: 520px;
+    line-height: 1.9;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s ease forwards;
+  }
+  .hero-subtitle strong {
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--gold);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 14px 32px;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+    transition: background 0.25s, transform 0.2s;
+    opacity: 0;
+    animation: fadeUp 1s 0.65s ease forwards;
+  }
+  .hero-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .hero-cta svg { width: 18px; height: 18px; }
+
+  .hero-badges {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin-top: 3.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.8s ease forwards;
+  }
+  .hero-badge {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 5px 14px;
+    border-radius: 50px;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── SECTION BASE ── */
+  .section {
+    padding: 6rem 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+  .section-label::after {
+    content: '';
+    display: block;
+    width: 28px; height: 1px;
+    background: var(--gold-pale);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 600;
+    color: var(--green-deep);
+    line-height: 1.4;
+    margin-bottom: 2rem;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--gold-pale);
+    margin: 0;
+  }
+
+  /* ── ABOUT ── */
+  .about-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  @media (max-width: 640px) { .about-wrapper { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+  .about-lead {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--green-deep);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--gold);
+    padding-left: 1.25rem;
+  }
+
+  .about-body {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 2;
+  }
+  .about-body p + p { margin-top: 1rem; }
+
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--gold-pale); border: 1px solid var(--gold-pale); }
+  .stat-item {
+    background: var(--white);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--green-deep);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 12px; color: var(--ink-light); letter-spacing: 0.08em; line-height: 1.4; }
+
+  .awards { margin-top: 1.5rem; }
+  .award-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--paper);
+    font-size: 13px;
+    color: var(--ink-mid);
+  }
+  .award-item:last-child { border-bottom: none; }
+  .award-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 7px; flex-shrink: 0;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--paper); }
+  #services .section { max-width: 900px; margin: 0 auto; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--gold-pale);
+    border: 1px solid var(--gold-pale);
+    margin-top: 2.5rem;
+  }
+  .service-card {
+    background: var(--white);
+    padding: 2rem 1.5rem;
+    transition: background 0.2s;
+  }
+  .service-card:hover { background: var(--green-pale); }
+  .service-icon {
+    width: 36px; height: 36px;
+    background: var(--green-pale);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--green-deep);
+  }
+  .service-icon svg { width: 18px; height: 18px; }
+  .service-name {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .service-desc {
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.85;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .testimonial-card {
+    background: var(--white);
+    border: 1px solid var(--gold-pale);
+    border-radius: 4px;
+    padding: 1.75rem 1.5rem;
+    position: relative;
+  }
+  .testimonial-quote-mark {
+    font-family: var(--serif);
+    font-size: 48px;
+    line-height: 1;
+    color: var(--gold-pale);
+    position: absolute;
+    top: 12px; left: 16px;
+  }
+  .testimonial-text {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.9;
+    margin-top: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .testimonial-author {
+    display: flex; align-items: center; gap: 10px;
+    border-top: 1px solid var(--gold-pale);
+    padding-top: 1rem;
+  }
+  .testimonial-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--green-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 500; color: var(--green-deep);
+    flex-shrink: 0;
+  }
+  .testimonial-name { font-size: 13px; font-weight: 500; color: var(--green-deep); }
+  .testimonial-type { font-size: 11px; color: var(--ink-light); letter-spacing: 0.06em; }
+  .testimonial-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 4px; }
+
+  /* ── PROCESS ── */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0;
+    margin-top: 2.5rem;
+    background: var(--paper);
+    border: 1px solid var(--gold-pale);
+  }
+  .process-step {
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+    border-right: 1px solid var(--gold-pale);
+  }
+  .process-step:last-child { border-right: none; }
+  @media (max-width: 600px) {
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-step { border-bottom: 1px solid var(--gold-pale); }
+  }
+  .process-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--green-deep);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 16px; font-weight: 600;
+    margin: 0 auto 12px;
+  }
+  .process-name {
+    font-size: 13px; font-weight: 500;
+    color: var(--green-deep);
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+  }
+  .process-desc { font-size: 12px; color: var(--ink-light); line-height: 1.7; }
+
+  /* ── FAQ ── */
+  .faq-list { margin-top: 2.5rem; }
+  .faq-item {
+    border-bottom: 1px solid var(--gold-pale);
+    overflow: hidden;
+  }
+  .faq-item:first-child { border-top: 1px solid var(--gold-pale); }
+  .faq-q {
+    width: 100%; background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 0;
+    font-family: var(--serif);
+    font-size: 15px; font-weight: 500;
+    color: var(--green-deep);
+    text-align: left;
+    gap: 1rem;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--gold); }
+  .faq-icon {
+    width: 22px; height: 22px; flex-shrink: 0;
+    border: 1px solid var(--gold-pale); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--gold);
+    transition: transform 0.3s;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a {
+    font-size: 14px; color: var(--ink-mid); line-height: 1.9;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.3s ease;
+    border-left: 3px solid var(--gold-pale);
+    padding-left: 1rem;
+    margin-left: 2px;
+    padding-bottom: 0;
+  }
+  .faq-item.open .faq-a { max-height: 400px; padding-bottom: 1.25rem; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--green-deep);
+    padding: 6rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      90deg, transparent, transparent 80px,
+      rgba(184,154,94,0.06) 80px, rgba(184,154,94,0.06) 81px
+    );
+  }
+  .cta-inner { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; }
+  .cta-eyebrow {
+    font-size: 11px; letter-spacing: 0.25em; color: var(--gold);
+    text-transform: uppercase; font-weight: 500; margin-bottom: 1rem;
+  }
+  .cta-title {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.45;
+    margin-bottom: 1.25rem;
+  }
+  .cta-sub {
+    font-size: 14px; color: rgba(255,255,255,0.55);
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .line-btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: #06C755;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px; font-weight: 500;
+    padding: 16px 36px;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+    transition: filter 0.2s, transform 0.2s;
+  }
+  .line-btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+  .line-btn svg { width: 22px; height: 22px; }
+
+  .cta-contact {
+    margin-top: 2.5rem;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: 13px; color: rgba(255,255,255,0.4);
+  }
+  .cta-contact a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .cta-contact a:hover { color: var(--gold-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 2.5rem;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.06em;
+    line-height: 2;
+  }
+  footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── MOBILE NAV ── */
+  @media (max-width: 540px) {
+    .nav-links { display: none; }
+    .hero-inner { padding: 4rem 1.5rem; }
+    .section { padding: 4rem 1.5rem; }
+    .cta-section { padding: 4rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">劉翠珍 雅瑄</div>
+  <ul class="nav-links">
+    <li><a href="#about">關於我</a></li>
+    <li><a href="#services">服務項目</a></li>
+    <li><a href="#testimonials">客戶見證</a></li>
+    <li><a href="#faq">常見問題</a></li>
+    <li><a href="#contact">立即諮詢</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-deco"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">住商不動產 · 台南湖美天河</div>
+    <h1 class="hero-title">
+      台南成家，<br>交給<em>最懂溫暖</em>的雅瑄。
+    </h1>
+    <p class="hero-subtitle">
+      我是 <strong>劉翠珍（雅瑄）</strong>，深耕台南中西區、湖美區域。<br>
+      買房不只是找物件，讓我陪您開啟家的美好可能。
+    </p>
+    <a href="https://line.me/ti/p/qqUzpHMPAn" target="_blank" class="hero-cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.037 2 11.01c0 2.777 1.37 5.26 3.52 6.912l-.92 3.414a.5.5 0 0 0 .717.564L9.5 20.018A11.07 11.07 0 0 0 12 20.02c5.52 0 10-4.037 10-9.01S17.52 2 12 2z"/></svg>
+      LINE 即時諮詢
+    </a>
+    <div class="hero-badges">
+      <span class="hero-badge">2023 白金菁英獎</span>
+      <span class="hero-badge">112 Q4 單店 TOP 1</span>
+      <span class="hero-badge">112 最佳新人獎</span>
+      <span class="hero-badge">百萬經紀人</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section">
+    <div class="section-label">關於我</div>
+    <div class="section-title">守護您成家夢想的<br>台南阿母</div>
+    <hr class="divider" style="margin-bottom: 3rem;">
+
+    <div class="about-wrapper reveal">
+      <div>
+        <p class="about-lead">
+          「我不靠話術，靠的是台南人最實在的誠信與口碑。」
+        </p>
+        <div class="about-body">
+          <p>在台南這片土地上，房地產不是冰冷的數字，而是每個家庭對未來的承諾。我明白年輕首購族面對動輒千萬房價的壓力，也體會自營商老闆對資產配置的精確要求。</p>
+          <p>身為台南的女兒，我在這裡生活了四十幾年，看著城市從古樸巷弄發展到潛力重劃區。不管是想幫孩子在南科旁成家，還是想找一塊傳承子孫的土地，我都會像幫自家人挑選一樣，細心把關。</p>
+        </div>
+
+        <div class="awards">
+          <div class="award-item"><span class="award-dot"></span>住商台南區 2023 年白金菁英獎</div>
+          <div class="award-item"><span class="award-dot"></span>住商台南區 112 年第四季百萬經紀人</div>
+          <div class="award-item"><span class="award-dot"></span>住商台南區 112 年第四季單店 TOP 1</div>
+          <div class="award-item"><span class="award-dot"></span>住商台南區 112 年最佳新人獎</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div class="stat-num">TOP 1</div>
+            <div class="stat-label">112 Q4<br>單店業績</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">白金</div>
+            <div class="stat-label">2023<br>菁英獎</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">中西</div>
+            <div class="stat-label">湖美區域<br>深耕專家</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">全程</div>
+            <div class="stat-label">看房至交屋<br>一站服務</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; background: var(--green-pale); border-left: 3px solid var(--gold); padding: 1.25rem 1.5rem; font-size: 14px; color: var(--ink-mid); line-height: 1.9;">
+          「獎項是數字，但最讓我開心的，依然是交屋那天您對我說的那句：雅瑄，謝謝妳。」
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" style="max-width: 900px; margin: 0 auto 0;">
+
+<!-- SERVICES -->
+<div id="services">
+  <div class="section">
+    <div class="section-label">服務項目</div>
+    <div class="section-title">雅瑄的專業，<br>您的安心</div>
+    <div class="services-grid reveal">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+        </div>
+        <div class="service-name">台南在地導航</div>
+        <div class="service-desc">深耕中西區、湖美區域，熟悉在地生活圈與重劃區發展，為您精選最有價值物件。</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <div class="service-name">首購成家計畫</div>
+        <div class="service-desc">從看房、貸款到產權過戶全程陪伴，把複雜流程變簡單，讓年輕人安心買到第一間房。</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="service-name">土地開發實力</div>
+        <div class="service-desc">憑藉 TOP 1 實績，提供土地開發與商用物件評估，協助老闆們精準佈局資產增值。</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="service-name">一站式交易諮詢</div>
+        <div class="service-desc">備好完整應備證件清單，包含地價稅單、產權證明、薪資轉帳等，讓買賣流程順暢無礙。</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div id="testimonials" style="background: var(--paper);">
+  <div class="section">
+    <div class="section-label">客戶見證</div>
+    <div class="section-title">每一句謝謝，<br>都是最好的獎章</div>
+    <hr class="divider" style="margin-bottom: 0;">
+    <div class="testimonials-grid reveal">
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">第一次買房完全不懂流程，雅瑄從貸款試算到簽約每個步驟都解釋得很清楚，不會讓人有壓力。交屋那天真的很感動，謝謝她的耐心陪伴。</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">小陳</div>
+          <div>
+            <div class="testimonial-name">陳小姐</div>
+            <div class="testimonial-type">首購族 · 永康區</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">我想在台南找適合開店的透天，問過幾個仲介都沒有很認真。雅瑄不一樣，她真的了解中西區的商圈生態，幫我找到非常適合的物件，現在生意很好。</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">老王</div>
+          <div>
+            <div class="testimonial-name">王老闆</div>
+            <div class="testimonial-type">自營商 · 中西區</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">在南科上班，想在附近買房方便通勤。雅瑄幫我比較了善化、新市好幾個社區，連學區、未來開發都分析給我聽。很專業，完全信任她。</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">工程師</div>
+          <div>
+            <div class="testimonial-name">林先生</div>
+            <div class="testimonial-type">南科工程師 · 善化區</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">家裡有一塊閒置土地，不知道能怎麼處理。雅瑄幫我評估了好幾個方向，包括出租和整合開發，說明得很詳細。感覺她真的是在幫我著想，不是只想快點成交。</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">黃媽</div>
+          <div>
+            <div class="testimonial-name">黃太太</div>
+            <div class="testimonial-type">資產活化 · 安南區</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="divider" style="max-width: 900px; margin: 0 auto;">
+
+<!-- PROCESS -->
+<div id="process">
+  <div class="section">
+    <div class="section-label">購屋流程</div>
+    <div class="section-title">六步驟，<br>讓買房不再複雜</div>
+    <hr class="divider" style="margin-bottom: 0;">
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div class="process-name">免費諮詢</div>
+        <div class="process-desc">LINE 或電話告訴我需求，一起釐清預算與條件</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div class="process-name">精選帶看</div>
+        <div class="process-desc">依需求過濾物件，陪您實際看屋，分析優缺點</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div class="process-name">議價協商</div>
+        <div class="process-desc">掌握市場行情，為您爭取最合理的成交價格</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <div class="process-name">貸款規劃</div>
+        <div class="process-desc">協助試算房貸、推薦適合方案，降低資金壓力</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">5</div>
+        <div class="process-name">簽約過戶</div>
+        <div class="process-desc">備齊所有文件，全程陪同簽約，確保權益無虞</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">6</div>
+        <div class="process-name">交屋售後</div>
+        <div class="process-desc">交屋後持續支援，有任何問題隨時找得到我</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" style="max-width: 900px; margin: 0 auto;">
+
+<!-- FAQ -->
+<div id="faq" style="background: var(--paper);">
+  <div class="section">
+    <div class="section-label">常見問題</div>
+    <div class="section-title">您想知道的，<br>雅瑄都在這裡</div>
+    <hr class="divider" style="margin-bottom: 0;">
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          第一次買房，我需要準備多少頭期款？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">一般房貸最高可貸八成，代表您至少需要房價的兩成作為頭期款，加上代書費、仲介費、契稅等雜費約佔房價 1.5～2%。舉例來說，買 1,000 萬的房子，頭期款加費用大約需要備妥 220 萬左右。每個人的狀況不同，建議先與我諮詢，我可以幫您試算最適合的方案。</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          委託仲介需要支付多少費用？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">依照不動產經紀業管理條例，買方仲介費上限為成交價的 2%，賣方仲介費上限為 4%。實際費用會依物件狀況與服務內容有所不同，我會在諮詢時明確告知，絕無隱藏費用。</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          台南哪些區域最值得投資或自住？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">自住方面，中西區生活機能成熟、湖美商圈便利；南科周邊的永康、善化、新市則深受工程師家庭青睞，通勤便利且生活圈完整。投資方面，目前幾個重劃區發展潛力不錯，建議與我預約，我可以根據您的預算與目標做更精準的分析。</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          我有一塊老地或老房，可以請雅瑄評估嗎？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">當然可以！我提供閒置土地與老宅的資產評估服務，包含出租活化、整合開發、改建翻新等多種方向。每塊土地的條件都不同，歡迎透過 LINE 或電話與我聯繫，我會親自了解後給您最實在的建議。</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          外地人想在台南買房，可以找雅瑄嗎？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">當然歡迎！我服務過許多外地工作、退休移居或子女在台南就學的客戶。即使您不在台南，我也可以先線上諮詢、視訊介紹物件，等您方便時再安排帶看，整個流程我都會陪您走完。</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          買賣流程大概需要多久時間？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">從簽訂買賣契約到完成過戶，一般約需 1 到 3 個月，視貸款審核速度與雙方時程安排而定。我會全程追蹤進度、提醒您備妥每個階段所需文件，讓流程盡量順暢不延誤。</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="divider" style="max-width: 900px; margin: 0 auto;">
+
+<!-- CTA / CONTACT -->
+<div id="contact" class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">立即聯繫</div>
+    <h2 class="cta-title">想在台南安家落戶？<br>雅瑄已為您準備好了。</h2>
+    <p class="cta-sub">房事、地事，就是雅瑄的大事。<br>歡迎透過 LINE 直接與我聯繫，我會親自回覆每一則訊息。</p>
+    <a href="https://line.me/ti/p/qqUzpHMPAn" target="_blank" class="line-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.037 2 11.01c0 2.777 1.37 5.26 3.52 6.912l-.92 3.414a.5.5 0 0 0 .717.564L9.5 20.018A11.07 11.07 0 0 0 12 20.02c5.52 0 10-4.037 10-9.01S17.52 2 12 2z"/></svg>
+      加入 LINE 開始諮詢
+    </a>
+    <div class="cta-contact">
+      <span>電話 / LINE ID：<a href="tel:0982283865">0982-283-865</a></span>
+      <span>台南市中西區中華西路二段 508 號</span>
+      <span>住商不動產台南湖美天河加盟店</span>
+      <span style="margin-top: 4px; font-size: 11px;">不動產證照：(103) 登字第 273511 號</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2024 劉翠珍 雅瑄｜住商不動產台南湖美天河加盟店</p>
+  <p style="margin-top: 4px;">不動產經紀人證照 (103) 登字第 273511 號</p>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revealEls.forEach(el => observer.observe(el));
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
